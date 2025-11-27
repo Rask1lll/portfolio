@@ -1,34 +1,41 @@
-import ProjectCart from "./ProjectCart";
+import ProjectCard from "./ProjectCard";
 
 const projects = [
   {
-    image: "/Screenshot 2025-11-18 at 21.00.33.png",
-    title: "Test",
-    desc: "lorem loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem",
+    images: ["/CloudeDisc.png", "/CloudeDisc.png"],
+    title: "Cloud disc",
+    desc: `ClodeDisc is a modern cloud-based storage application designed to securely store, preview, and manage user files, including PDFs, images, videos, and audio. 
+    The platform is built with Next.js, styled with Tailwind CSS, and uses Zustand for state management.`,
+    gitLink: "https://github.com/Rask1lll/CloudDiscApp",
   },
   {
-    image: "/Screenshot 2025-11-18 at 21.00.33.png",
-    title: "Test",
-    desc: "lorem loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem",
+    images: ["/learning platform.png", "/learning platform.png"],
+    title: "School Management System",
+    desc: `The School Management System is a comprehensive web platform built for schools to organize and manage their academic and administrative workflows.  
+It is developed using Next.js, styled with Tailwind CSS, and uses Zustand for fast and predictable state management.
+  `,
+    gitLink: "https://github.com/Rask1lll/school-management",
   },
   {
-    image: "/Screenshot 2025-11-18 at 21.00.33.png",
-    title: "Test",
-    desc: "lorem loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloreloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloreloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloreloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem",
+    images: ["/minilingo.jpg", "/minilingo.jpg", "/minilingo.jpg"],
+    title: "Minilingo",
+    desc: "MiniLingo is a full-featured web application designed to help users learn English through interactive mini-games, structured lessons, and a built-in gamification system.  The platform is built with React and uses React Router for navigation.",
+    gitLink: "https://github.com/Rask1lll/miniLingo",
   },
 ];
 
 export default function Projects() {
   return (
     <div className="flex justify-center">
-      <div className="projectContainer p-7 rounded-4xl gap-7 w-fit grid grid-cols-2 xl:grid-cols-3">
-        {projects.map((el) => {
+      <div className="projectContainer p-7 rounded-4xl gap-7 w-fit grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+        {projects.map((el, i) => {
           return (
-            <ProjectCart
+            <ProjectCard
               title={el.title}
-              image={el.image}
+              images={el.images}
               description={el.desc}
-              gitlink=""
+              gitlink={el.gitLink}
+              cardID={i + 1}
             />
           );
         })}
