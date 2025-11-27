@@ -1,5 +1,5 @@
 import { BsTelephone } from "react-icons/bs";
-import { LiaLinkedin } from "react-icons/lia";
+import { LiaLinkedin, LiaTelegram } from "react-icons/lia";
 import { MdMail } from "react-icons/md";
 
 export default function Footer() {
@@ -12,7 +12,7 @@ export default function Footer() {
       >
         <path d="M-100 0C-100 0 218.416 55.835 693.5 55.835C1168.58 55.835 1487 0 1487 0V79H-100V0Z"></path>
       </svg>
-      <div className="pl-5">
+      <div className="pl-5 border-0">
         <ul className="text-white flex flex-col gap-2 text-xl">
           <li className="flex gap-2 items-center">
             <MdMail />{" "}
@@ -34,6 +34,10 @@ export default function Footer() {
             >
               LinkedIn
             </a>
+          </li>
+          <li className="flex gap-2 items-center">
+            <LiaTelegram />{" "}
+            <a href="tg://resolve?domain=<@Rask1lll>">Telegram</a>
           </li>
         </ul>
       </div>
