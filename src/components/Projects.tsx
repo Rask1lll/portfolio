@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import ProjectCard from "./ProjectCard";
+import { useInView, motion } from "framer-motion";
 
 const projects = [
   {
@@ -25,8 +27,16 @@ It is developed using Next.js, styled with Tailwind CSS, and uses Zustand for fa
 ];
 
 export default function Projects() {
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(cardsRef);
   return (
-    <div className="flex justify-center">
+    <motion.div
+      className="flex justify-center"
+      ref={cardsRef}
+      initial={{ x: 200 }}
+      animate={isInView && { x: 0 }}
+      transition={{ duration: 1, delay: 0.5 }}
+    >
       <div className="projectContainer p-7 rounded-4xl gap-7 w-fit grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
         {projects.map((el, i) => {
           return (
@@ -40,6 +50,6 @@ export default function Projects() {
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 }
